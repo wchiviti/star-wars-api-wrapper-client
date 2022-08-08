@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td>{{(person | async)?.name}}</td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>{{(person | async)?.gender}}</td>
+  </tr>
+  <tr>
+    <td>Hometown</td>
+    <td>{{(person | async)?.homeworld.name}}</td>
+  </tr>
+  <tr>
+    <td>Height</td>
+    <td>{{(person | async)?.height}}</td>
+  </tr>
+  <tr>
+    <td>Mass</td>
+    <td>{{(person | async)?.mass}}</td>
+  </tr>
+  </tbody>
+</table>

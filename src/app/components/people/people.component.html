@@ -1,0 +1,27 @@
+<clr-datagrid>
+  <clr-dg-column>Name</clr-dg-column>
+  <clr-dg-column>Gender</clr-dg-column>
+  <clr-dg-column>Height</clr-dg-column>
+  <clr-dg-column>Mass</clr-dg-column>
+  <clr-dg-column>Hometown</clr-dg-column>
+  <clr-dg-column>Action</clr-dg-column>
+
+  <clr-dg-row *ngFor="let person of people | async">
+    <clr-dg-cell>{{person.name}}</clr-dg-cell>
+    <clr-dg-cell>{{person.gender}}</clr-dg-cell>¶
+    <clr-dg-cell>{{person.height}}</clr-dg-cell>
+    <clr-dg-cell>{{person.mass}}</clr-dg-cell>
+    <clr-dg-cell>{{person.homeworld.name}}</clr-dg-cell>
+    <clr-dg-cell>
+      <a class="btn btn-outline btn-sm" [routerLink]="['person']" [queryParams]="{ url: person.url }">View</a>
+    </clr-dg-cell>
+
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      of {{pagination.totalItems}} People
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

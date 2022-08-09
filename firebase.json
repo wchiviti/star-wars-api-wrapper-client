@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/star-wars-api-client",
     "target": "dev",
     "ignore": [
       "firebase.json",

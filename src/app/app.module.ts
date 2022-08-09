@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {APOLLO_OPTIONS, ApolloModule} from "apollo-angular";
 import { GraphQLModule } from './graphql.module';
 import { ViewPersonComponent } from './components/view-person/view-person.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ViewPersonComponent } from './components/view-person/view-person.compon
     ClarityModule,
     HttpClientModule,
     ApolloModule,
-    GraphQLModule
+    GraphQLModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

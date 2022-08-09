@@ -1,12 +1,21 @@
 import {NgModule} from '@angular/core';
 import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
-import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
+import {ApolloClientOptions, ApolloLink, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
+import {setContext} from "@apollo/client/link/context";
+import {HttpHeaders} from "@angular/common/http";
 
 const uri = 'http://localhost:8080/graphql'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
+
+  const auth = setContext((operation, context) => {
+    var headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append("Authorization", "Basic " + btoa("admin:%$Pass123"));
+    return headers;
+  });
   return {
-    link: httpLink.create({uri}),
+    link: ApolloLink.from([auth, httpLink.create({uri})]),
     cache: new InMemoryCache(),
   };
 }
@@ -21,4 +30,5 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     },
   ],
 })
-export class GraphQLModule {}
+export class GraphQLModule {
+}

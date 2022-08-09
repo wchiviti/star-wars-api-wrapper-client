@@ -5,7 +5,7 @@ import {HttpLink} from 'apollo-angular/http';
 import {setContext} from "@apollo/client/link/context";
 import {HttpHeaders} from "@angular/common/http";
 
-const uri = 'http://localhost:8080/graphql'; // <-- add the URL of the GraphQL server here
+const uri = 'https://star-wars-api-sovtech.herokuapp.com/graphql'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
 
   const auth = setContext((operation, context) => {

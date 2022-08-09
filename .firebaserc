@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fir-8d743"
+  },
+  "targets": {
+      "fir-8d743": {
+        "hosting": {
+          "dev": [
+            "star-wars-api-wrapper-client"
+          ]
+        }
+      }
+    }
+}

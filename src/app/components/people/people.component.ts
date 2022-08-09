@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PeopleService} from "../../services/people/people.service";
 import {Person} from "../../models/people.interface";
 import {Observable} from "rxjs";
@@ -11,11 +11,17 @@ import {Observable} from "rxjs";
 export class PeopleComponent implements OnInit {
 
   people: Observable<Person[]>
+  searchName: String
 
-  constructor(private peopleService: PeopleService) { }
+  constructor(private peopleService: PeopleService) {
+  }
 
   ngOnInit(): void {
     this.people = this.peopleService.getPeople();
+  }
+
+  onSearch(): void {
+    this.people = this.peopleService.searchPerson(this.searchName)
   }
 
 }
